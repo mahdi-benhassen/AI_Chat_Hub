@@ -1,0 +1,9 @@
+// This file is required for deployment
+// It specifies the Node.js version and other requirements
+{
+  "name": "ai-chat-proxy",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  }
+}

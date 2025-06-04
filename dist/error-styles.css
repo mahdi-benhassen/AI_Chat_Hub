@@ -1,0 +1,58 @@
+.error-message {
+    background-color: rgba(255, 76, 76, 0.1);
+    border-left: 3px solid #ff4c4c;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+}
+
+.dark-theme .error-message {
+    background-color: rgba(255, 76, 76, 0.2);
+}
+
+.error-message h4 {
+    color: #ff4c4c;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.error-message p {
+    margin: 0.5rem 0;
+}
+
+.error-message ol {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    padding: 0;
+}
+
+.error-message li {
+    margin-bottom: 0.25rem;
+}
+
+.server-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.server-status.online {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.server-status.offline {
+    background-color: rgba(255, 76, 76, 0.1);
+    color: #ff4c4c;
+}
+
+.dark-theme .server-status.online {
+    background-color: rgba(16, 185, 129, 0.2);
+}
+
+.dark-theme .server-status.offline {
+    background-color: rgba(255, 76, 76, 0.2);
+}

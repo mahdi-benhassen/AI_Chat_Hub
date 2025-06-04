@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="error-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>AI Chat Hub</h1>
+            </div>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" class="theme-switch">
+                <label for="theme-switch" class="theme-switch-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <div class="model-selection">
+                        <h2>AI Models</h2>
+                        <div class="model-list">
+                            <div class="model-item active" data-model="chatgpt">
+                                <div class="model-icon"><i class="fas fa-comment-dots"></i></div>
+                                <div class="model-info">
+                                    <h3>ChatGPT</h3>
+                                    <p>OpenAI's GPT model</p>
+                                </div>
+                            </div>
+                            <div class="model-item" data-model="claude">
+                                <div class="model-icon"><i class="fas fa-brain"></i></div>
+                                <div class="model-info">
+                                    <h3>Claude</h3>
+                                    <p>Anthropic's AI assistant</p>
+                                </div>
+                            </div>
+                            <div class="model-item" data-model="deepseek">
+                                <div class="model-icon"><i class="fas fa-search"></i></div>
+                                <div class="model-info">
+                                    <h3>DeepSeek</h3>
+                                    <p>DeepSeek's language model</p>
+                                </div>
+                            </div>
+                            <div class="model-item" data-model="grok">
+                                <div class="model-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="model-info">
+                                    <h3>Grok</h3>
+                                    <p>xAI's conversational AI</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="api-settings">
+                        <h2>API Settings</h2>
+                        <div class="api-form">
+                            <div class="api-input-group">
+                                <label for="chatgpt-api">ChatGPT API Key</label>
+                                <div class="api-input-wrapper">
+                                    <input type="password" id="chatgpt-api" class="api-input" placeholder="Enter API key">
+                                    <button class="toggle-visibility"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="api-input-group">
+                                <label for="claude-api">Claude API Key</label>
+                                <div class="api-input-wrapper">
+                                    <input type="password" id="claude-api" class="api-input" placeholder="Enter API key">
+                                    <button class="toggle-visibility"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="api-input-group">
+                                <label for="deepseek-api">DeepSeek API Key</label>
+                                <div class="api-input-wrapper">
+                                    <input type="password" id="deepseek-api" class="api-input" placeholder="Enter API key">
+                                    <button class="toggle-visibility"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="api-input-group">
+                                <label for="grok-api">Grok API Key</label>
+                                <div class="api-input-wrapper">
+                                    <input type="password" id="grok-api" class="api-input" placeholder="Enter API key">
+                                    <button class="toggle-visibility"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <button id="save-api-keys" class="save-button">Save API Keys</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2><span id="current-model">ChatGPT</span> Chat</h2>
+                    <div class="chat-actions">
+                        <button id="clear-chat" class="action-button"><i class="fas fa-trash"></i> Clear Chat</button>
+                        <button id="export-chat" class="action-button"><i class="fas fa-download"></i> Export Chat</button>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="welcome-message">
+                        <h3>Welcome to AI Chat Hub!</h3>
+                        <p>Select an AI model from the sidebar and enter your API key to start chatting.</p>
+                        <p>Your API keys and chat history are stored locally in your browser.</p>
+                        <p class="server-note">All API requests are processed through a secure server to avoid CORS issues.</p>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <textarea id="user-input" placeholder="Type your message here..." rows="1"></textarea>
+                    <button id="send-message" disabled><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the proxy base URL based on the deployment environment
+        document.addEventListener('DOMContentLoaded', function() {
+            // For production deployment
+            updateProxyBaseUrl(window.location.origin + '/api');
+        });
+    </script>
+    <script src="api-handlers.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
